@@ -4,6 +4,55 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Geomanist es la fuente institucional; si no está instalada se usa Instrument Sans. */
+    --font-sans: 'Geomanist', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    /* Paleta de la guía de estilo institucional */
+    --color-institucional: #386173;
+    --color-oscuro: #1f364a;
+    --color-lima: #b8d87a;
+    --color-vino: #621132;
+    --color-guinda: #9d2449;
+    --color-dorado: #b38e5d;
+
+    --color-fondo: #f3f6f8;
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .btn-primary {
+        @apply bg-institucional text-white hover:bg-oscuro focus-visible:ring-institucional;
+    }
+
+    .btn-secondary {
+        @apply border border-slate-300 bg-white text-oscuro hover:bg-slate-50 focus-visible:ring-institucional;
+    }
+
+    .btn-danger {
+        @apply bg-guinda text-white hover:bg-vino focus-visible:ring-guinda;
+    }
+
+    .card {
+        @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+    }
+
+    .form-label {
+        @apply mb-1.5 block text-sm font-semibold text-oscuro;
+    }
+
+    .form-input {
+        @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-oscuro shadow-xs placeholder:text-slate-400 focus:border-institucional focus:ring-2 focus:ring-institucional/30 focus:outline-none;
+    }
+
+    .form-error {
+        @apply mt-1 text-sm text-guinda;
+    }
+
+    .badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ring-inset;
+    }
 }
